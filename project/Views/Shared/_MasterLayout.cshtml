@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <title>EcoFundMe Environment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz9K68v6QIu6qOp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/style.css">
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1 style="display:flex;flex-direction:column;text-align:center;align-content:center">
+                <alt>EcoFundMe Environment</alt>
+                <img src="" alt="logo" />
+            </h1>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="Test">Trang chủ</a></li>
+                <li><a href="Test3">Giới thiệu</a></li>
+                <li><a href="Test2">Dịch vụ</a></li>
+                <li><a href="Test4">Liên hệ</a></li>
+            </ul>
+        </div>
+        <script>
+            function toggleMenu() {
+                var menu = document.querySelector('.menu');
+                if (menu.style.display === 'none') {
+                    menu.style.display = 'block';
+                } else {
+                    menu.style.display = 'none';
+                }
+            }
+        </script>
+        <input type="text" class="search-bar" placeholder="Tìm kiếm" style="width:250px;height:20px">
+    </div>
+    <p>Chào mừng bạn đến với EcoFundMe, nơi bạn có thể quyên góp vì mục đích môi trường. Cho dù bạn đang cố gắng làm sạch một dòng sông bị ô nhiễm, trồng cây hay cứu một loài khỏi nguy cơ tuyệt chủng, chúng tôi có thể giúp bạn đạt được mục tiêu của mình.</p>
+    <p>Để bắt đầu, hãy tạo một chiến dịch và kể câu chuyện của bạn. Sau đó, chia sẻ chiến dịch của bạn với bạn bè, gia đình và cộng đồng. Mỗi khoản quyên góp, dù nhỏ đến đâu, đều tạo nên sự khác biệt.</p>
+    <p>Đây là một số tổ chức bảo vệ môi trường mà bạn có thể hỗ trợ trên EcoFundMe:</p>
+    <ul class="menu">
+        <li><a href="#">Môi trường nước</a></li>
+        <li><a href="#">Môi trường không khí</a></li>
+        <li><a href="#">Năng lượng tái sử dụng</a></li>
+        <li><a href="#">Động vật hoang dã</a></li>
+        <li><a href="#">Biến đổi khí hậu</a></li>
+    </ul>
+    <p>Nếu bạn quan tâm môi trường, chúng tôi khuyến khích bạn nên tham gia. Tạo chiến dịch, quyên góp cho một mục đích nào đó hoặc chia sẻ thông điệp này với mọi người. Cùng nhau, chúng ta có thể tạo nên sự khác biệt.</p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Chiến dịch nổi bật</h2>
+            <div class="campaign-list">
+                <div class="campaign">
+                    <img src="https://photo-cms-tinnhanhchungkhoan.epicdn.me/w660/Uploaded/2023/WpxlCdjwi/2015_10_14/1/1_RDUZ.jpg" alt="Clean Water">
+                    <h3>Chung tay cải thiện chất lượng nước</h3>
+                    <p>Chiến dịch này nhằm quyên tiền để cải tạo chất lương nước ở Thành phố Hồ Chí Minh.</p>
+                    <a href="https://www.gofundme.com/f/water-well-in-the-name-of-suhel-khan" class="btn btn-primary">Donate</a>
+                </div>
+                <div class="campaign">
+                    <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2020/1/6/776773/Chay-Rung-O-Uc-7.jpg" alt="Save the">
+                    <h3>Phục hồi rừng</h3>
+                    <p>Chiến dịch này đang gây quỹ để khôi phục rừng ở Úc sau đám cháy.</p>
+                    <a href="https://www.gofundme.com/f/HHH-FIRE-RESPONSE" class="btn btn-primary">Donate</a>
+                </div>
+                <div class="campaign">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ1Y11VoBmQYjcLH59lukT9OOJyMQDHmc8Of_5V1P1rw&s" alt="Fight Climate Change">
+                    <h3>Chiến đấu vì biến đổi khí hậu</h3>
+                    <p>Chiến dịch này đang gây quỹ để đấu tranh với biến đổi khí hậu.</p>
+                    <a href="https://www.gofundme.com/f/emergency-help-save-this-climate-change-project" class="btn btn-primary">Donate</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Hướng dẫn tạo ra một chiến dịch</h2>
+            <ol>
+                <li>Click vào EcoFundMe và nhấp vào nút "Tạo chiến dịch".</li>
+                <li>Chọn danh mục cho chiến dịch của bạn và đặt tiêu đề cho chiến dịch đó.</li>
+                <li>Kể câu chuyện của bạn và giải thích lý do bạn hỗ trợ.</li>
+                <li>Đặt mục tiêu gây quỹ và thêm ảnh cũng như video vào trang chiến dịch của bạn.</li>
+                <li>Chia sẻ chiến dịch của bạn với bạn bè, gia đình và cộng đồng.</li>
+            </ol>
+            <p>Bây giờ bạn đã cso thể bắt đầu quyên góp cho mục đích môi trường của mình.</p>
+            <button type="submit" class="btn btn-primary" style="background-color: #008000; color: #ffffff;">Tạo chiến dịch</button>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Mẹo để có một chiến dịch thành công</h2>
+            <ul>
+                <li>Kể một câu chuyện hấp dẫn. Mọi người có thể quyên góp cho chiến dịch nhiều hơn nếu họ có thể kết nối với những người đứng sau chiến dịch đó.</li>
+                <li>Đặt mục tiêu gây quỹ thực tế. Đừng đặt mục tiêu quá cao hoặc quá thấp.</li>
+                <li>Sử dụng ảnh và video để kể câu chuyện của bạn và làm cho trang chiến dịch của bạn hấp dẫn hơn về mặt hình ảnh.</li>
+                <li>Chia sẻ chiến dịch của bạn với mọi người. Càng nhiều người xem chiến dịch của bạn thì bạn càng có nhiều cơ hội đạt được mục tiêu của mình.</li>
+            </ul>
+            <p>Chúng tôi hy vọng những mẹo này có thể giúp bạn tạo một chiến dịch trên EcoFundMe thành công. Cảm ơn bạn đã góp phần bảo vệ hành tinh của chúng ta! @RenderBody()</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright &copy; 2023 EcoFundMe Environment</p>
+    </div>
+    </body>
+</html>

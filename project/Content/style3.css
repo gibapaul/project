@@ -1,0 +1,42 @@
+﻿body {
+
+}
+img {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    background-color: #000;
+    height: 60px;
+    padding: 20px;
+}
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header .logo {
+        width: 100px;
+    }
+
+    header .nav {
+        list-style: none;
+    }
+
+        header .nav a {
+            color: #fff;
+            width: 10px;
+            text-decoration: none;
+        }
+            .footer {
+                background-color: #f5f5f5;
+                padding: 20px;
+            }
+
+    .footer p {
+        font-size: 14px;
+        color: #666;
+    }

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<project.Models.Product>
+
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <title>Trang web bảo vệ môi trường</title>
+    <meta name="description" content="This is a web page with a background image.">
+    <meta name="keywords" content="web page, background image">
+
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        @using (Html.BeginForm("Index", "CustomerProducts", FormMethod.Get))
+        {
+            <div class="tcc">
+
+                <div class="find">
+
+                    <input type="text" name="_name" style="width:300px;" />
+                    <input type="submit" value="Search" />
+
+                </div>
+                <div class="logo1">
+                    EcoFundMe
+                </div>
+                <div class="imglogo">
+                    <img src="~/Content/img/Screenshot 2023-10-03 001521.png" width="60" height="50">
+                </div>
+
+                <div class="logo2">
+                    Environment
+                </div>
+
+                @Html.ActionLink("Sign-up", "Register", "Users", null, new { @class = "sign" })
+
+                <div class="start">
+                    <a href="Create">Create</a>
+                </div>
+            </div>
+            <div id="wrapper">
+                <div class="headline">
+                    <h3>FEATURED CAMPAIGNS</h3>
+                </div>
+
+            </div>
+            <ul class="products">
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <li>
+                            <div class="product-item" style="border: 2px solid;">
+                                <div class="product-top">
+                                    <a href="Details" class="product-thumb">
+                                        <img src="~/Content/img/@Url.Content(item.ImagePro)" height="150" width="150" alt="Images" />
+                                    </a>
+                                    @Html.ActionLink("CHI TIẾT", "Details", new { id = item.ProductID }, new { @class = "btn btn-primary" })
+                                </div>
+                                <div class="product-info">
+                                    <a href="" class="product-cat">@item.IDCate</a>
+                                    <a href="" class="product-name">@item.NamePro</a>
+                                    <div class="product-content">@item.DecriptionPro</div>
+                                </div>
+
+                            </div>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <p>Không có dữ liệu.</p>
+                }
+            </ul>
+        }
+    </main>
+</body>

@@ -1,0 +1,56 @@
+﻿@using project.Models
+@model List<CartItem>
+@{
+    ViewBag.Title = "GetCartInfo";
+}
+
+<h2>GetCartInfo</h2>
+
+<div style="margin: 10px auto; width: 70%;">
+    <h2 style="text-align: center">THÔNG TIN GIỎ HÀNG</h2>
+    <hr />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>MÃ SẢN PHẨM</th>
+                <th>TÊN</th>
+                <th>ẢNH</th>
+                <th>SỐ LƯỢNG</th>
+                <th>ĐƠN GIÁ</th>
+                <th>THÀNH TIỀN</th>
+                <th>CHI TIẾT</th>
+                <th>CẬP NHẬT</th>
+                <th>XÓA</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+
+                <tr>
+                    <td>@product.ProductID</td>
+                    <td>@product.NamePro</td>
+                    <td><img src="~/Images/@product.ImagePro" style="width: 100px;"/></td>
+                    <td>@product.Number</td>
+                    <td>
+                        <input type="number" min="1000" value="@product.Price" name="Price"
+                    </td>
+                    <td>@product.FinalPrice()</td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", "CustomerProducts", new{id = product.ProductID}, new { @class = "btn btn-success" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update", "UpdateCartItem", "Cart", new{id =product.ProductID}, new { @class = "btn btn-primary" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteCartItem", "Cart", new{id =product.ProductID}, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+            <tr style="font-weight:bold; text-align:right; color:red;">
+                <td colspan="5">Tổng số lượng: @ViewBag.TotalNumber</td>
+                <td colspan="1">Tổng tiền: @ViewBag.TotalPrice</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

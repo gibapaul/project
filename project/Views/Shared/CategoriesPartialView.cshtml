@@ -1,0 +1,8 @@
+﻿
+@model IEnumerable<project.Models.Category>
+<div>
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {@Html.ActionLink(item.NameCate, "GetProductsByCateId", "CustomerProducts", new { id = item.Id }, new { @class = "list-group-item" })}
+        </ul>
+    </div>

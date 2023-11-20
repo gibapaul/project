@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>EcoFundMe Environment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz9K68v6QIu6qOp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/style5.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/GoFundMe_Logo.svg/1200px-GoFundMe_Logo.svg.png" alt="GoFundMe">
+            </a>
+            <nav>
+                <a href="Test">Trang chủ</a>
+                <a href="#">Tạo chiến dịch</a>
+                <a href="#">Hỗ trợ</a>
+            </nav>
+        </div>
+    </header>
+    <h1>Donate</h1>
+    <p>Your donation will help us to continue providing our services to the community.</p>
+    <form action="/donate" method="post">
+        <input type="hidden" name="charity" value="your-charity-name" />
+        <input type="text" name="name" placeholder="Your Name" />
+        <input type="email" name="email" placeholder="Your Email" />
+        <input type="number" name="amount" placeholder="Amount" />
+        <input type="submit" value="Donate" />
+    </form>
+    <div class="footer">
+        <p>Copyright &copy; 2023 EcoFundMe Environment</p>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
