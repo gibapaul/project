@@ -12,6 +12,28 @@ namespace project.Controllers
     public class LoginUserController : Controller
     {
         DBSportStoreEntities database = new DBSportStoreEntities();
+
+        public ActionResult ManageAccount()
+        {
+            var userList = database.AdminUsers.ToList();
+            return View(userList);
+        }
+
+        public ActionResult DeleteAccount(int id, AdminUser user)
+        {
+            try
+            {
+                user = database.AdminUsers.Where(s => s.ID == id).FirstOrDefault();
+                database.AdminUsers.Remove(user);
+                database.SaveChanges();
+                return RedirectToAction("ManageAccount");
+            }
+            catch
+            {
+                return Content("This data is using in other table, Error Delete!");
+            }
+        }
+
         // GET: LoginUser
         public ActionResult LoginUser()
         {
@@ -20,7 +42,7 @@ namespace project.Controllers
         [HttpPost]
         public ActionResult LoginAccount(AdminUser _user)
         {
-            var check = database.AdminUsers.Where(s=>s.ID == _user.ID&&s.PasswordUser==_user.PasswordUser).ToList();
+            var check = database.AdminUsers.Where(s => s.NameUser == _user.NameUser && s.PasswordUser == _user.PasswordUser).ToList();
             if (check == null )
             {
                 ViewBag.ErrorInfo = "SaiInfo";
@@ -29,9 +51,8 @@ namespace project.Controllers
             else
             {
                 database.Configuration.ValidateOnSaveEnabled = false;
-                Session["ID"] = _user.ID;
-                Session["PasswordUser"] = _user.PasswordUser;
-                return RedirectToAction("LoginUser");
+                Session["UserName"] = _user.NameUser;
+                return RedirectToAction("Index", "CustomerProducts");
             }
         }
         public ActionResult RegisterUser()
@@ -47,6 +68,7 @@ namespace project.Controllers
                 if (check_ID == null)
                 {
                     database.Configuration.ValidateOnSaveEnabled = false;
+                    _user.RoleUser = "Guest";
                     database.AdminUsers.Add(_user);
                     database.SaveChanges();
                     return RedirectToAction("LoginUser");

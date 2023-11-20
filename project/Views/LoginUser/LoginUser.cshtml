@@ -3,34 +3,28 @@
     ViewBag.Title = "LoginUser";
     Layout = "";
 }
+<link rel="stylesheet" href="~/Content/stylelogin.css">
 <style>
     .field-validation-error {
         color: red;
     }
 </style>
-<h2>FormLogin</h2>
 @using (Html.BeginForm("LoginAccount", "LoginUser"))
 {
-    <table>
-        <tr>
-            <td>@Html.LabelFor(model => model.ID) </td>
-            <td>@Html.TextBoxFor(model => model.ID, new { style = "field-validation-error" })</td>
-            <td>@Html.ValidationMessageFor(model => model.ID)</td>
-        </tr>
-        <tr>
-            <td>@Html.LabelFor(model => model.PasswordUser) </td>
-            <td>@Html.EditorFor(model => model.PasswordUser)</td>
-            <td>@Html.ValidationMessageFor(model => model.PasswordUser)</td>
-            @if (ViewBag.ErrorInfo == null)
-            {
-                <template>
-                    @ViewBag.ErrorInfo
-            </template>
-        }
-        </tr>
-        <tr>
-            <td><input type="submit" value="Login"</td>
-        </tr>
-    </table>
+    <div class="loginBox">
+        <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+        <h3>Sign in here</h3>
+        <form method="post">
+            <div class="inputBox">
+                @Html.TextBoxFor(model => model.NameUser, new { style = "field-validation-error" })
+                @Html.EditorFor(model => model.PasswordUser)
+            </div> 
+            <input type="submit" name="" value="Login">
+        </form>
+        <div class="text-center">
+            <p style="color: rgba(0, 255, 0, .2);">Sign-Up</p>
+        </div>
+
+    </div>
 }
 

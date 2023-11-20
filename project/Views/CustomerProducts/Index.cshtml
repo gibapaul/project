@@ -1,4 +1,8 @@
-﻿@model IEnumerable<project.Models.Product>
+﻿@*@model IEnumerable<project.Models.Product>*@
+
+@using project.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
 
 @{
     ViewBag.Title = "test";
@@ -37,12 +41,18 @@
                 <div class="logo2">
                     Environment
                 </div>
+                @if (Session["UserName"] != null)
+                {
+                    <div class="sign">Hello @Session["UserName"].ToString()</div>
+                }
+                else
+                {
+                    @Html.ActionLink("Login", "LoginUser", "LoginUser", null, new { @class = "sign" })
 
-                @Html.ActionLink("Sign-up", "Register", "Users", null, new { @class = "sign" })
-
-                <div class="start">
-                    <a href="Create">Create</a>
-                </div>
+                    <div class="start">
+                        <a href="/LoginUser/RegisterUser">Create</a>
+                    </div>
+                }
             </div>
             <div id="wrapper">
                 <div class="headline">
@@ -78,6 +88,16 @@
                     <p>Không có dữ liệu.</p>
                 }
             </ul>
+            <div class="btn-toolbar justify-content-center pt-4" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    @for (var page = 1; page <= Model.PageCount; page++)
+                    {
+                        <button type="button" class="btn btn-secondary @(page == Model.PageNumber ? "active" : "")" onclick="location.href='@Url.Action("Index", new { page = page })'">
+                            @page
+                        </button>
+                    }
+                </div>
+            </div>
         }
     </main>
 </body>

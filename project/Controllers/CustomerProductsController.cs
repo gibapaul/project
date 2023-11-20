@@ -24,18 +24,18 @@ namespace project.Controllers
                 return View(db.Products.Where(s => s.NamePro.Contains(_name)).ToList());
         }
 */
-        public ActionResult Index(string category, int? page, double min = double.MinValue, double max = double.MaxValue)
+        public ActionResult Index(string _name, int? page, double min = double.MinValue, double max = double.MaxValue)
         {
-            int pageSize = 4;
+            int pageSize = 3;
             int pageNum = (page ?? 1);
-            if (category == null)
+            if (_name == null)
             {
                 var productList = db.Products.OrderByDescending(x => x.NamePro);
                 return View(productList.ToPagedList(pageNum, pageSize));
             }
             else
             {
-                var productList = db.Products.OrderByDescending(x => x.NamePro).Where(x => x.Category.NameCate == category);
+                var productList = db.Products.OrderByDescending(x => x.NamePro).Where(s => s.NamePro.Contains(_name));
                 return View(productList);
             }
         }

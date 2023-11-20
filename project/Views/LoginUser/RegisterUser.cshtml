@@ -8,28 +8,28 @@
         color: red;
     }
 </style>
-<h2>RegisterUser</h2>
+<link rel="stylesheet" href="~/Content/stylelogin.css">
 @using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "muitipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    <p>@Html.LabelFor(model => model.ID)</p>
-    <p>@Html.EditorFor(model => model.ID)</p>
-    <p>@Html.ValidationMessageFor(model => model.ID)</p>
-    if (ViewBag.ErrorRegister != null)
-    {
-        <p>@ViewBag.ErrorRegister</p>
-    }
-    <p>@Html.LabelFor(model => model.NameUser)</p>
-    <p>@Html.EditorFor(model => model.NameUser)</p>
-    <p>@Html.ValidationMessageFor(model => model.NameUser)</p>
+    <div class="loginBox">
+        <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+        <h3>Register here</h3>
+        <form method="post">
+            <div class="inputBox">
+                <p>ID</p>
+                <p>@Html.EditorFor(model => model.ID)</p>
+                <p>Name</p>
+                <p>@Html.EditorFor(model => model.NameUser)</p>
+                <p>Password</p>
+                <p>@Html.PasswordFor(model => model.PasswordUser)</p>
+                <p>Confirm Password</p>
+                <p>@Html.PasswordFor(model => model.ConfirmPass)</p>
+            </div> <input type="submit" name="" value="Register">
+        </form>
+        <a href="#">Forget Password<br> </a>
+        <div class="text-center">
+            <p style="color: rgba(0, 255, 0, .2);">Sign-In</p>
+        </div>
 
-    <p>@Html.LabelFor(model => model.PasswordUser)</p>
-    <p>@Html.PasswordFor(model => model.PasswordUser)</p>
-    <p>@Html.ValidationMessageFor(model => model.PasswordUser)</p>
-
-    <p>@Html.LabelFor(model => model.ConfirmPass)</p>
-    <p>@Html.PasswordFor(model => model.ConfirmPass)</p>
-    <p>@Html.ValidationMessageFor(model => model.ConfirmPass)</p>
-    <input type="submit" value="Register" />
+    </div>
 }
-
